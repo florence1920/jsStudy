@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        .sizeBack {width: 850px; height: 300px; padding: 20px; background:rgb(248, 183, 183); font-size:30px; }
+        .sizeBack p {margin:0 0 10px; color:#fff; font-size:40px;}
+    </style>
+</head>
+<body>
+    <div class="sizeBack">
+        <p id="screen"></p>
+        <p id="outer"></p>
+        <p id="inner"></p>
+        <p id="clientWH"></p>
+    </div>
+
+    <script>
+        //값을 구하고 -> 해당 구역에 넣는다 
+        let screen = document.getElementById('screen');
+        let outer = document.getElementById('outer');
+        let inner = document.getElementById('inner');
+        let clientWH = document.getElementById('clientWH');
+
+        function sizeCh(){
+            screen.innerHTML =`window.screen: ${window.screen.width}, ${window.screen.height}`;
+            outer.innerHTML = `window.outer: ${window.outerWidth}, ${window.outerHeight}`;
+            inner.innerHTML = `window.inner: ${window.innerWidth}, ${window.innerHeight}`;
+            clientWH.innerHTML = `documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+        }
+
+        window.addEventListener('resize',function(){
+            sizeCh();
+        });
+
+        sizeCh();
+    </script>
+</body>
+</html>
