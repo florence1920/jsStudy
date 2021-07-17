@@ -1,2 +1,2 @@
 # jsStudy
-javascript 
+javascript study
