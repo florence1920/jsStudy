@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        .boxWrap {overflow: hidden; width:1080px; margin:20px 0 0 20px;}
+        .boxWrap li {float: left; margin:0 20px 20px 0;}
+        .boxWrap li:nth-child(5n) {margin:0;}
+        .boxWrap li div {width: 200px; height: 200px; border-radius: 5px; background-color: rgb(172, 172, 172);}
+        .boxWrap li .special {background-color: rgb(224, 253, 55);}
+    </style>
+</head>
+<body>
+    <ul class="boxWrap">
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div class="special"></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div class="special"></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div  class="special"></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div class="special"></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div class="special"></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        
+    </ul>
+    <script>
+        let special = document.querySelectorAll('.special');
+        //배열돌려서 event 적용!
+        function getCoor(box){
+            let clientRect = box.getBoundingClientRect();
+            pageX = clientRect.left + window.pageXOffset;
+            pageY = clientRect.top + window.pageYOffset;
+            console.log(clientRect);
+            console.log(`client: ${clientRect.x},${clientRect.y}`);
+            console.log(`page: ${pageX},${pageY}`);
+        }
+        special.forEach(function(i){
+            i.addEventListener('click',function(){
+                getCoor(i);
+            })
+        })
+    </script>
+</body>
+</html>
