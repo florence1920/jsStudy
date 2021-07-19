@@ -7,14 +7,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="../reset.css">
     <style>
+        .btnWrap {overflow: hidden; position:fixed; top:20px; right:20px;}
+        .btnWrap button {float: left; width: 100px; height: 50px; margin:0 5px 0 0; background-color: crimson; color:#fff; border-radius: 5px; cursor: pointer;}
         .boxWrap {overflow: hidden; width:1080px; margin:20px 0 0 20px;}
         .boxWrap li {float: left; margin:0 20px 20px 0;}
         .boxWrap li:nth-child(5n) {margin:0;}
         .boxWrap li div {width: 200px; height: 200px; border-radius: 5px; background-color: rgb(172, 172, 172);}
         .boxWrap li .special {background-color: rgb(224, 253, 55);}
+        .boxWrap li .here {background-color:crimson;}
     </style>
 </head>
 <body>
+    <div class="btnWrap">
+        <button id="scrollDown">Scroll Down</button>
+        <button onclick="scrollTo100()">Scroll To 100</button>
+        <button onclick="scrollToHere()">To special</button>
+    </div>
     <ul class="boxWrap">
         <li>
             <div></div>
@@ -101,7 +109,7 @@
             <div></div>
         </li>
         <li>
-            <div></div>
+            <div class="here"></div>
         </li>
         <li>
             <div></div>
@@ -123,6 +131,30 @@
         </li>
     </ul>
     <script>
+        //scrollUp
+        let scrollDownBtn = document.getElementById('scrollDown');
+        scrollDownBtn.addEventListener('click',function(){
+            scrollDown(100);
+        })
+        //let scDownSum = 0;
+        function scrollDown(scrollValue){
+            //scDownSum = scrollValue + scDownSum;
+            window.scrollBy(0,scrollValue);
+        }
+
+        //scrollTo 100
+        function scrollTo100(){
+            window.scrollTo({left:0,top:100,behavior:'smooth'});
+        }
+
+        //scrollTo Here
+        //1.here요소의 탑 값 구하기 
+        let here = document.querySelector('.here');
+        //2.here 로 이동하기 
+        function scrollToHere(){
+            here.scrollIntoView();
+        }
+
         let special = document.querySelectorAll('.special');
         //배열돌려서 event 적용!
         function getCoor(box){
