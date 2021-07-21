@@ -134,12 +134,12 @@
         //scrollUp
         let scrollDownBtn = document.getElementById('scrollDown');
         scrollDownBtn.addEventListener('click',function(){
-            scrollDown(100);
+            scrollDown(200);
         })
         //let scDownSum = 0;
         function scrollDown(scrollValue){
             //scDownSum = scrollValue + scDownSum;
-            window.scrollBy(0,scrollValue);
+            window.scrollBy({left:0, top:scrollValue,behavior:'smooth'});
         }
 
         //scrollTo 100
@@ -152,7 +152,7 @@
         let here = document.querySelector('.here');
         //2.here 로 이동하기 
         function scrollToHere(){
-            here.scrollIntoView();
+            here.scrollIntoView({behavior:'smooth'});
         }
 
         let special = document.querySelectorAll('.special');
@@ -163,7 +163,6 @@
             pageY = clientRect.top + window.pageYOffset;
             console.log(clientRect);
             console.log(`client: ${clientRect.x},${clientRect.y}`);
-            console.log(`page: ${pageX},${pageY}`);
             console.log(`page: ${pageX},${pageY}`);
         }
 
